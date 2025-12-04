@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✧･ﾟ: *✧ Deborah's World ✧*:･ﾟ✧</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Pacifico&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --crimson: #DC143C;
+            --crimson-dark: #8B0A1A;
+            --crimson-light: #FF6B8A;
+            --cream: #FFFDD0;
+            --cream-dark: #F5E6C8;
+            --sparkle: #FFD700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: var(--cream);
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23DC143C' fill-opacity='0.08'%3E%3Cpath d='M30 30l-5-5 5-5 5 5-5 5zm0-20l-5-5 5-5 5 5-5 5zm0 40l-5-5 5-5 5 5-5 5zm20-20l-5-5 5-5 5 5-5 5zm-40 0l-5-5 5-5 5 5-5 5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            min-height: 100vh;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ctext y='15' font-size='15'%3E💖%3C/text%3E%3C/svg%3E"), auto;
+        }
+
+        /* Sparkle cursor trail */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 20px;
+            animation: sparkle-fade 1s forwards;
+            z-index: 9999;
+        }
+
+        @keyframes sparkle-fade {
+            0% { opacity: 1; transform: scale(1) rotate(0deg); }
+            100% { opacity: 0; transform: scale(0) rotate(180deg); }
+        }
+
+        /* Scrolling marquee */
+        .marquee-container {
+            background: linear-gradient(90deg, var(--crimson), var(--crimson-dark), var(--crimson));
+            padding: 8px 0;
+            overflow: hidden;
+            border-bottom: 3px dashed var(--sparkle);
+        }
+
+        .marquee {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            white-space: nowrap;
+        }
+
+        .marquee span {
+            color: var(--cream);
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            padding: 0 50px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Main container */
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 200px 1fr 200px;
+            gap: 20px;
+        }
+
+        /* Header */
+        .header {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(180deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+            border: 5px double var(--cream);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='50' font-size='30' text-anchor='middle' fill='%23FFFDD0' opacity='0.1'%3E✧%3C/text%3E%3C/svg%3E");
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            color: var(--cream);
+            text-shadow: 
+                3px 3px 0 var(--crimson-dark),
+                -1px -1px 0 var(--sparkle),
+                1px -1px 0 var(--sparkle),
+                -1px 1px 0 var(--sparkle),
+                1px 1px 0 var(--sparkle);
+            position: relative;
+            z-index: 1;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 10px var(--sparkle)); }
+            50% { filter: drop-shadow(0 0 20px var(--sparkle)); }
+        }
+
+        .header .tagline {
+            font-family: 'VT323', monospace;
+            color: var(--cream);
+            font-size: 1.3rem;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--cream-dark);
+            border: 3px solid var(--crimson);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 
+                5px 5px 0 var(--crimson-dark),
+                inset 0 0 20px rgba(220, 20, 60, 0.1);
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+        }
+
+        .sidebar-title {
+            font-family: 'VT323', monospace;
+            font-size: 1.3rem;
+            color: var(--crimson);
+            border-bottom: 2px dashed var(--crimson);
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* About Me Section */
+        .about-me {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--crimson);
+            margin: 10px auto;
+            background: linear-gradient(45deg, var(--crimson-light), var(--crimson));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .about-text {
+            font-size: 0.9rem;
+            color: var(--crimson-dark);
+            line-height: 1.5;
+        }
+
+        /* Blinkies & Graphics */
+        .blinkie-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+        }
+
+        .blinkie {
+            background: linear-gradient(90deg, var(--crimson), var(--crimson-light));
+            color: var(--cream);
+            padding: 3px 8px;
+            font-size: 0.7rem;
+            border-radius: 3px;
+            animation: blink 1s infinite;
+            font-family: 'VT323', monospace;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Music Player / Podcast Section */
+        .podcast-player {
+            background: linear-gradient(180deg, var(--crimson-dark), #2a0a10);
+            border: 3px ridge var(--crimson);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .podcast-title {
+            font-family: 'VT323', monospace;
+            color: var(--sparkle);
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--sparkle);
+        }
+
+        .podcast-now-playing {
+            background: #000;
+            color: #0f0;
+            font-family: 'VT323', monospace;
+            padding: 8px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            animation: text-scroll 10s linear infinite;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        @keyframes text-scroll {
+            0%, 20% { transform: translateX(0); }
+            80%, 100% { transform: translateX(-50%); }
+        }
+
+        .audio-player {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        .podcast-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .podcast-list li {
+            background: rgba(255, 253, 208, 0.1);
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            color: var(--cream);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .podcast-list li:hover {
+            background: rgba(255, 253, 208, 0.2);
+            transform: translateX(5px);
+        }
+
+        .podcast-list li::before {
+            content: '▶';
+            color: var(--sparkle);
+        }
+
+        /* Main Content */
+        .main-content {
+            background: var(--cream-dark);
+            border: 3px solid var(--crimson);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 5px 5px 0 var(--crimson-dark);
+        }
+
+        /* Blog Post */
+        .blog-post {
+            background: var(--cream);
+            border: 2px dashed var(--crimson);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .blog-post::before {
+            content: '✿';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-size: 1.5rem;
+            color: var(--crimson);
+            background: var(--cream-dark);
+            padding: 0 5px;
+        }
+
+        .post-header {
+            border-bottom: 2px dotted var(--crimson-light);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .post-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            color: var(--crimson);
+        }
+
+        .post-meta {
+            font-family: 'VT323', monospace;
+            color: var(--crimson-dark);
+            font-size: 0.9rem;
+        }
+
+        .post-content {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .post-mood {
+            display: inline-block;
+            background: var(--crimson);
+            color: var(--cream);
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        /* Polaroid Gallery */
+        .polaroid-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .polaroid {
+            background: #fff;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 
+                0 4px 6px rgba(0,0,0,0.3),
+                0 1px 3px rgba(0,0,0,0.2);
+            transform: rotate(var(--rotation, 0deg));
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .polaroid:nth-child(1) { --rotation: -5deg; }
+        .polaroid:nth-child(2) { --rotation: 3deg; }
+        .polaroid:nth-child(3) { --rotation: -2deg; }
+        .polaroid:nth-child(4) { --rotation: 4deg; }
+        .polaroid:nth-child(5) { --rotation: -3deg; }
+        .polaroid:nth-child(6) { --rotation: 2deg; }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.1);
+            z-index: 10;
+        }
+
+        .polaroid-img {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--crimson-light) 0%, var(--crimson) 50%, var(--crimson-dark) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 1px solid #ddd;
+        }
+
+        .polaroid-caption {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 0.9rem;
+            color: var(--crimson-dark);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            background: var(--cream);
+            border: 2px solid var(--crimson);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .comments-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: var(--crimson);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .comment {
+            background: var(--cream-dark);
+            border-left: 4px solid var(--crimson);
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .comment-author {
+            font-family: 'VT323', monospace;
+            font-size: 1.1rem;
+            color: var(--crimson);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cutie-badge {
+            background: linear-gradient(90deg, var(--crimson), var(--crimson-light));
+            color: var(--cream);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+        }
+
+        .comment-text {
+            margin-top: 8px;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .comment-date {
+            font-family: 'VT323', monospace;
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* Comment Form */
+        .comment-form {
+            background: linear-gradient(180deg, var(--crimson), var(--crimson-dark));
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .form-title {
+            font-family: 'VT323', monospace;
+            color: var(--cream);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--cream);
+            font-family: 'VT323', monospace;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--cream);
+            border-radius: 5px;
+            font-family: 'Comic Neue', cursive;
+            background: var(--cream);
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--sparkle);
+            color: var(--crimson-dark);
+            border: none;
+            padding: 12px 30px;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px var(--sparkle);
+        }
+
+        /* Guestbook / Member Signup */
+        .member-box {
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-dark));
+            border: 3px double var(--sparkle);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .member-title {
+            font-family: 'Pacifico', cursive;
+            color: var(--sparkle);
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--sparkle);
+        }
+
+        .member-input {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid var(--sparkle);
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-family: 'Comic Neue', cursive;
+            background: var(--cream);
+        }
+
+        .member-btn {
+            background: var(--sparkle);
+            color: var(--crimson-dark);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .member-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--sparkle);
+        }
+
+        /* Web Counter */
+        .web-counter {
+            text-align: center;
+            padding: 10px;
+            background: #000;
+            border: 2px inset var(--crimson);
+            border-radius: 5px;
+            margin-top: 15px;
+        }
+
+        .counter-label {
+            color: var(--cream);
+            font-family: 'VT323', monospace;
+            font-size: 0.9rem;
+        }
+
+        .counter-number {
+            background: #111;
+            color: #0f0;
+            font-family: 'VT323', monospace;
+            font-size: 1.5rem;
+            padding: 5px 15px;
+            display: inline-block;
+            margin-top: 5px;
+            border: 1px inset #333;
+        }
+
+        /* Navigation */
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 8px 0;
+        }
+
+        .nav-links a {
+            color: var(--crimson);
+            text-decoration: none;
+            font-family: 'VT323', monospace;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--crimson-light);
+            transform: translateX(5px);
+        }
+
+        .nav-links a::before {
+            content: '➤';
+            font-size: 0.8rem;
+        }
+
+        /* Footer */
+        .footer {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(180deg, var(--crimson-dark), #2a0a10);
+            border-radius: 15px;
+            border: 3px solid var(--crimson);
+            margin-top: 20px;
+        }
+
+        .footer-text {
+            color: var(--cream);
+            font-family: 'VT323', monospace;
+        }
+
+        .footer-links {
+            margin-top: 10px;
+        }
+
+        .footer-links a {
+            color: var(--sparkle);
+            margin: 0 10px;
+            text-decoration: none;
+            font-family: 'VT323', monospace;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Decorative elements */
+        .star-decoration {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .main-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--crimson), var(--crimson-dark));
+            border-radius: 6px;
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--crimson);
+            color: var(--cream);
+        }
+
+        /* Daily Motivational Quote */
+        .motivational-quote {
+            background: linear-gradient(135deg, var(--crimson) 0%, var(--crimson-dark) 100%);
+            border: 3px double var(--sparkle);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .motivational-quote::before,
+        .motivational-quote::after {
+            content: '✦';
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.1;
+            color: var(--sparkle);
+        }
+
+        .motivational-quote::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .motivational-quote::after {
+            bottom: -10px;
+            right: -10px;
+        }
+
+        .quote-decoration {
+            font-size: 2rem;
+            color: var(--sparkle);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .quote-text {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin: 15px 0;
+            line-height: 1.6;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .quote-author {
+            font-family: 'VT323', monospace;
+            color: var(--sparkle);
+            font-size: 1rem;
+        }
+
+        .new-quote-btn {
+            background: var(--sparkle);
+            color: var(--crimson-dark);
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-family: 'VT323', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .new-quote-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--sparkle);
+        }
+
+        /* Medical School Journey */
+        .med-school-journey {
+            background: var(--cream);
+            border: 3px solid var(--crimson);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .med-school-journey::before {
+            content: '🩺';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            font-size: 1.5rem;
+            background: var(--cream-dark);
+            padding: 0 10px;
+        }
+
+        .journey-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed var(--crimson);
+        }
+
+        .journey-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            color: var(--crimson);
+            margin-bottom: 5px;
+        }
+
+        .journey-subtitle {
+            font-family: 'VT323', monospace;
+            color: var(--crimson-dark);
+            font-size: 1.1rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--crimson), var(--crimson-light), var(--crimson));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--sparkle);
+            border: 3px solid var(--crimson);
+            border-radius: 50%;
+            animation: glow 2s infinite;
+        }
+
+        .timeline-content {
+            background: var(--cream-dark);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--crimson);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(5px);
+            box-shadow: 3px 3px 0 var(--crimson-light);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: var(--crimson);
+            color: var(--cream);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-family: 'VT323', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content h4 {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            color: var(--crimson-dark);
+            margin-bottom: 5px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .journey-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px dotted var(--crimson);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-dark));
+            border-radius: 10px;
+            min-width: 100px;
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
+        }
+
+        .stat-number {
+            display: block;
+            font-family: 'VT323', monospace;
+            font-size: 2rem;
+            color: var(--sparkle);
+            text-shadow: 0 0 10px var(--sparkle);
+        }
+
+        .stat-label {
+            font-family: 'Comic Neue', cursive;
+            font-size: 0.8rem;
+            color: var(--cream);
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <!-- Decorative floating stars -->
+    <div class="star-decoration" style="top: 20%; left: 5%;">✧</div>
+    <div class="star-decoration" style="top: 40%; right: 8%; animation-delay: 1s;">♥</div>
+    <div class="star-decoration" style="top: 60%; left: 3%; animation-delay: 2s;">✦</div>
+    <div class="star-decoration" style="top: 80%; right: 5%; animation-delay: 0.5s;">❀</div>
+
+    <!-- Scrolling Marquee -->
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>✧･ﾟ: *✧ Welcome to Deborah's World! ✧*:･ﾟ✧</span>
+            <span>♥ Thanks 4 visiting! ♥</span>
+            <span>☆ New podcast episode dropping soon! ☆</span>
+            <span>✿ Sign my guestbook plz! ✿</span>
+            <span>✧･ﾟ: *✧ Welcome to Deborah's World! ✧*:･ﾟ✧</span>
+            <span>♥ Thanks 4 visiting! ♥</span>
+            <span>☆ New podcast episode dropping soon! ☆</span>
+            <span>✿ Sign my guestbook plz! ✿</span>
+        </div>
+    </div>
+
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header class="header">
+            <h1>✧ Deborah's World ✧</h1>
+            <p class="tagline">~ where thoughts become words & vibes become reality ~</p>
+        </header>
+
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section about-me">
+                <h3 class="sidebar-title">♥ About Me ♥</h3>
+                <div class="profile-pic">👩‍🦱</div>
+                <p class="about-text">
+                    Hey babes! I'm Deborah! ✨ Just a dreamer sharing my thoughts, my chaos, and my cute little life moments. Stick around, grab some tea, and let's vibe together! 
+                    <br><br>
+                    🎧 Podcast Host<br>
+                    📸 Memory Collector<br>
+                    💭 Overthinker Extraordinaire
+                </p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">✿ Navigate ✿</h3>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#motivation">Daily Quote</a></li>
+                    <li><a href="#journey">Med School Journey</a></li>
+                    <li><a href="#podcast">Podcast</a></li>
+                    <li><a href="#gallery">My Pics</a></li>
+                    <li><a href="#blog">Blog Posts</a></li>
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">✦ Blinkies ✦</h3>
+                <div class="blinkie-container">
+                    <span class="blinkie">Y2K Queen</span>
+                    <span class="blinkie">Podcast Babe</span>
+                    <span class="blinkie">Dreamer</span>
+                    <span class="blinkie">Night Owl</span>
+                    <span class="blinkie">Vintage Soul</span>
+                    <span class="blinkie">Coffee Addict</span>
+                </div>
+            </div>
+
+            <div class="web-counter">
+                <div class="counter-label">✧ Visitors ✧</div>
+                <div class="counter-number" id="visitor-count">000847</div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Podcast Player -->
+            <section class="podcast-player" id="podcast">
+                <h3 class="podcast-title">🎧 Deborah's Podcast Corner 🎧</h3>
+                <div class="podcast-now-playing">
+                    ♫ Now Playing: Episode 23 - "Late Night Thoughts & Midnight Dreams" ♫ ♫ Now Playing: Episode 23 - "Late Night Thoughts & Midnight Dreams" ♫
+                </div>
+                <audio class="audio-player" controls>
+                    <source src="your-podcast-file.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <ul class="podcast-list">
+                    <li data-episode="ep23">Ep 23: Late Night Thoughts & Midnight Dreams</li>
+                    <li data-episode="ep22">Ep 22: Coffee Shop Confessions</li>
+                    <li data-episode="ep21">Ep 21: Why We Love What We Love</li>
+                    <li data-episode="ep20">Ep 20: Main Character Energy</li>
+                    <li data-episode="ep19">Ep 19: Nostalgic for a Time I Never Lived</li>
+                </ul>
+            </section>
+
+            <!-- Daily Motivational Quote -->
+            <section class="motivational-quote" id="motivation">
+                <div class="quote-decoration">✧</div>
+                <p class="quote-text" id="daily-quote">"She believed she could, so she did."</p>
+                <p class="quote-author">- R.S. Grey</p>
+                <button class="new-quote-btn" onclick="newQuote()">✨ New Quote ✨</button>
+            </section>
+
+            <!-- Journey to Medical School -->
+            <section class="med-school-journey" id="journey">
+                <div class="journey-header">
+                    <h3 class="journey-title">🩺 Journey to Medical School Chronicles 🩺</h3>
+                    <p class="journey-subtitle">Following my dream, one step at a time ✨</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Dec 2024</span>
+                            <h4>Secondary Applications Complete! 📝</h4>
+                            <p>Finally submitted my last secondary app at 2am. Fingers crossed and prayers up! The waiting game begins...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Nov 2024</span>
+                            <h4>First Interview Invite! 🎉</h4>
+                            <p>I literally screamed when I got the email!! All those late nights studying are paying off. Time to prep!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Oct 2024</span>
+                            <h4>MCAT Score Release 📊</h4>
+                            <p>The anxiety was REAL but we did it! Score came back better than expected. Hard work pays off, besties!</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Summer 2024</span>
+                            <h4>Clinical Volunteering 🏥</h4>
+                            <p>Started volunteering at the local hospital. Every patient interaction reminds me why I want this so badly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">Spring 2024</span>
+                            <h4>The Dream Begins 💭</h4>
+                            <p>Officially decided to pursue medicine. Scared but excited. Here's to the journey ahead!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="journey-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Study Hours</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Apps Submitted</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Coffee Cups</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Big Dream</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest Blog Post -->
+            <article class="blog-post" id="blog">
+                <div class="post-header">
+                    <h2 class="post-title">✿ Why I'm Bringing Back MySpace Energy ✿</h2>
+                    <p class="post-meta">Posted on: November 28, 2024 | 2:47 AM</p>
+                </div>
+                <div class="post-content">
+                    <p>Okay so hear me out... there was something SO magical about the internet in the early 2000s. The custom profiles, the top 8 drama, the way everyone just... expressed themselves without worrying about algorithms?? </p>
+                    <br>
+                    <p>That's why I made this blog look like this. I want my little corner of the internet to feel like a warm hug from 2005. Where we can just BE without the pressure of perfection. 💕</p>
+                    <br>
+                    <p>Also I definitely spent 3 hours choosing between this shade of crimson and another one. Worth it? Absolutely. </p>
+                </div>
+                <span class="post-mood">Current Mood: ✨ Nostalgic ✨</span>
+            </article>
+
+            <!-- Polaroid Gallery -->
+            <section id="gallery">
+                <h3 class="sidebar-title" style="text-align: center; font-size: 1.5rem; margin: 20px 0;">📸 Polaroid Moments 📸</h3>
+                <div class="polaroid-gallery">
+                    <div class="polaroid">
+                        <div class="polaroid-img">☕</div>
+                        <span class="polaroid-caption">morning coffee</span>
+                    </div>
+                    <div class="polaroid">
+                        <div class="polaroid-img">🎤</div>
+                        <span class="polaroid-caption">podcast day!</span>
+                    </div>
+                    <div class="polaroid">
+                        <div class="polaroid-img">📚</div>
+                        <span class="polaroid-caption">cozy reads</span>
+                    </div>
+                    <div class="polaroid">
+                        <div class="polaroid-img">🌸</div>
+                        <span class="polaroid-caption">spring vibes</span>
+                    </div>
+                    <div class="polaroid">
+                        <div class="polaroid-img">🎧</div>
+                        <span class="polaroid-caption">editing time</span>
+                    </div>
+                    <div class="polaroid">
+                        <div class="polaroid-img">✨</div>
+                        <span class="polaroid-caption">just me</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comments Section -->
+            <section class="comments-section" id="comments">
+                <h3 class="comments-title">💬 Leave Some Luv! 💬</h3>
+                
+                <div class="comment">
+                    <div class="comment-author">
+                        🌟 StarryEyedSarah
+                        <span class="cutie-badge">Cutie Pie</span>
+                    </div>
+                    <p class="comment-text">OMG Deborah this site is EVERYTHING!! The Y2K vibes are giving me life rn 😭💕</p>
+                    <span class="comment-date">Nov 27, 2024 @ 11:32 PM</span>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-author">
+                        🦋 MidnightMelody
+                        <span class="cutie-badge">Cutie Patootie</span>
+                    </div>
+                    <p class="comment-text">Your podcast literally got me through my night shift. You're doing amazing sweetie!! ✨</p>
+                    <span class="comment-date">Nov 26, 2024 @ 3:15 AM</span>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-author">
+                        🌙 DreamCatcher99
+                        <span class="cutie-badge">Cutie Cupcake</span>
+                    </div>
+                    <p class="comment-text">The crimson and cream color scheme? *chef's kiss* Absolute perfection!</p>
+                    <span class="comment-date">Nov 25, 2024 @ 8:47 PM</span>
+                </div>
+
+                <!-- Comment Form -->
+                <div class="comment-form">
+                    <h4 class="form-title">✧ Drop a Comment! ✧</h4>
+                    <div class="form-group">
+                        <label for="commenter-name">Your Name:</label>
+                        <input type="text" id="commenter-name" placeholder="What should we call you?">
+                    </div>
+                    <div class="form-group">
+                        <label for="commenter-message">Your Message:</label>
+                        <textarea id="commenter-message" placeholder="Share your thoughts, bestie! 💕"></textarea>
+                    </div>
+                    <button class="submit-btn" onclick="submitComment()">✧ Post Comment ✧</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar">
+            <!-- Member Box -->
+            <div class="sidebar-section member-box">
+                <h3 class="member-title">✧ Join the Cuties! ✧</h3>
+                <p style="color: var(--cream); font-size: 0.85rem; margin-bottom: 10px;">Become a member & get a cute name!</p>
+                <input type="text" class="member-input" placeholder="Your email..." id="member-email">
+                <button class="member-btn" onclick="joinCuties()">Become a Cutie! 💖</button>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">☆ Cutie Members ☆</h3>
+                <ul class="nav-links" style="font-size: 0.9rem;">
+                    <li style="margin: 5px 0;">💗 Cutie Pie #1 - Sarah</li>
+                    <li style="margin: 5px 0;">💗 Cutie Patootie - Melody</li>
+                    <li style="margin: 5px 0;">💗 Cutie Cupcake - Luna</li>
+                    <li style="margin: 5px 0;">💗 Cutie Angel - Jasmine</li>
+                    <li style="margin: 5px 0;">💗 Cutie Star - Ava</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">♫ Currently ♫</h3>
+                <p style="font-size: 0.9rem; color: var(--crimson-dark);">
+                    <strong>Listening to:</strong> Aly & AJ<br>
+                    <strong>Reading:</strong> Old journals<br>
+                    <strong>Watching:</strong> 2000s movies<br>
+                    <strong>Craving:</strong> Vanilla latte ☕
+                </p>
+            </div>
+
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">❤ Shoutouts ❤</h3>
+                <div class="blinkie-container">
+                    <span class="blinkie">Sarah's Blog</span>
+                    <span class="blinkie">Luna's Art</span>
+                    <span class="blinkie">Ava Writes</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">✧･ﾟ: *✧ Made with love by Deborah ✧*:･ﾟ✧</p>
+            <p class="footer-text">© 2024 | Best viewed with Internet Explorer 6.0 (jk lol)</p>
+            <div class="footer-links">
+                <a href="#">Home</a>
+                <a href="#">Archive</a>
+                <a href="#">Contact</a>
+                <a href="#">RSS Feed</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Sparkle cursor trail
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.92) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = e.pageX + 'px';
+                sparkle.style.top = e.pageY + 'px';
+                sparkle.textContent = ['✧', '✦', '♥', '✿', '★'][Math.floor(Math.random() * 5)];
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 1000);
+            }
+        });
+
+        // Visitor counter animation
+        function animateCounter() {
+            const counter = document.getElementById('visitor-count');
+            let count = parseInt(counter.textContent);
+            count++;
+            counter.textContent = count.toString().padStart(6, '0');
+        }
+        setTimeout(animateCounter, 2000);
+
+        // Submit comment
+        function submitComment() {
+            const name = document.getElementById('commenter-name').value;
+            const message = document.getElementById('commenter-message').value;
+            
+            if (name && message) {
+                const cutieNames = ['Cutie Pie', 'Cutie Patootie', 'Cutie Cupcake', 'Cutie Angel', 'Cutie Star', 'Cutie Blossom'];
+                const randomCutie = cutieNames[Math.floor(Math.random() * cutieNames.length)];
+                
+                alert(`Thanks for your comment, ${name}! 💕\nYou've been assigned: ${randomCutie}`);
+                document.getElementById('commenter-name').value = '';
+                document.getElementById('commenter-message').value = '';
+            } else {
+                alert('Please fill out both fields, bestie! ✨');
+            }
+        }
+
+        // Join cuties
+        function joinCuties() {
+            const email = document.getElementById('member-email').value;
+            if (email) {
+                const cutieNames = ['Cutie Honey', 'Cutie Sunshine', 'Cutie Butterfly', 'Cutie Moonbeam', 'Cutie Sparkle', 'Cutie Blossom'];
+                const randomCutie = cutieNames[Math.floor(Math.random() * cutieNames.length)];
+                alert(`Welcome to the Cuties! 🎀\nYour cute name is: ${randomCutie}!\n\nCheck your email for updates! 💖`);
+                document.getElementById('member-email').value = '';
+            } else {
+                alert('Enter your email to join, cutie! 💗');
+            }
+        }
+
+        // Podcast list click handler
+        document.querySelectorAll('.podcast-list li').forEach(item => {
+            item.addEventListener('click', function() {
+                const episodeName = this.textContent;
+                document.querySelector('.podcast-now-playing').textContent = 
+                    `♫ Now Playing: ${episodeName} ♫ `.repeat(2);
+                alert(`Loading: ${episodeName}\n\n(Replace the audio source with your actual podcast file!)`);
+            });
+        });
+
+        // Polaroid click to enlarge
+        document.querySelectorAll('.polaroid').forEach(polaroid => {
+            polaroid.addEventListener('click', function() {
+                const caption = this.querySelector('.polaroid-caption').textContent;
+                alert(`📸 "${caption}"\n\n(Replace with your actual photos by changing the polaroid-img content or adding background-image!)`);
+            });
+        });
+
+        // Daily Motivational Quotes
+        const quotes = [
+            { text: "She believed she could, so she did.", author: "R.S. Grey" },
+            { text: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt" },
+            { text: "Medicine is not only a science; it is also an art.", author: "Paracelsus" },
+            { text: "Your hardest times often lead to the greatest moments of your life.", author: "Roy T. Bennett" },
+            { text: "The good physician treats the disease; the great physician treats the patient.", author: "William Osler" },
+            { text: "Dream big. Work hard. Stay focused. Surround yourself with good people.", author: "Unknown" },
+            { text: "You are braver than you believe, stronger than you seem, and smarter than you think.", author: "A.A. Milne" },
+            { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+            { text: "Wherever the art of medicine is loved, there is also a love of humanity.", author: "Hippocrates" },
+            { text: "Success is not final, failure is not fatal: it is the courage to continue that counts.", author: "Winston Churchill" },
+            { text: "Be the change you wish to see in the world.", author: "Mahatma Gandhi" },
+            { text: "Difficult roads often lead to beautiful destinations.", author: "Zig Ziglar" },
+            { text: "Your limitation—it's only your imagination.", author: "Unknown" },
+            { text: "Great things never come from comfort zones.", author: "Unknown" },
+            { text: "The best time to plant a tree was 20 years ago. The second best time is now.", author: "Chinese Proverb" },
+            { text: "Every accomplishment starts with the decision to try.", author: "John F. Kennedy" },
+            { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+            { text: "What lies behind us and what lies before us are tiny matters compared to what lies within us.", author: "Ralph Waldo Emerson" }
+        ];
+
+        function newQuote() {
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById('daily-quote').textContent = `"${randomQuote.text}"`;
+            document.querySelector('.quote-author').textContent = `- ${randomQuote.author}`;
+        }
+
+        // Load random quote on page load
+        window.addEventListener('load', newQuote);
+    </script>
+</body>
+</html>
